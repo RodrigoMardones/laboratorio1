@@ -1,0 +1,41 @@
+---
+title: "Informe Laboratorio Paradigmas de programacion"
+author: "Rodrigo Mardones"
+date: "10-05-2020"
+output: pdf_document
+fontsize: 12pt
+geometry: margin=1in
+---
+
+
+\newpage 
+# Introducción
+
+
+
+\newpage
+# Descripción del problema
+
+
+\newpage
+# Descripción del paradigma
+
+
+\newpage
+# Análisis del problema
+
+
+\newpage
+# Aspectos de la implementación
+
+
+\newpage
+# Conclusiones 
+
+
+\newpage
+# Referencias 
+
+
+
+
