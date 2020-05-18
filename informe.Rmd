@@ -11,14 +11,50 @@ geometry: margin=1in
 \newpage 
 # Introducción
 
+Los paradigmas de programación son marcos de trabajo para, desde cierta perspectiva abordada según el problema a solucionar,  trabajar con herramientas ya establecidas según las normas que lo rigen en el cotexto dado.
+Es preciso señalar que indiferente de los lenguajes nuevos, modernos y sus herramnientas propias asociadas, siempre se regirán por al menos uno o más paradigmas de programación. Pues son estos quienes nos permiten analizar de buena manera la mejor respuesta a un problema y su contexto especifico.
+
+### Objectivo General
+
+Para este el caso de este laboratorio, se plantea la construcción de una pieza de software pequeña que permita emular un controlador de versiones tipo GIT, dentro de los parametros del paradigma de programacion funcional y sus visitudes.
+
+### Objectivos Específicos
+
+Para abordar el problema se plantean lo siguientes objectivos especificos
+
+* Análisis del problema 
+* Aspectos de implementación
+* construccion de implementacion 
+* 
+*
+
+
+Este informe solo recopila el estudio y construccion del proyecto de laboratorio descrito, por lo que no se abordarán otros paradigmas que pueden mencionarse como referencia para la construcción del mismo en las pagintas contiguas. 
+
 
 
 \newpage
-# Descripción del problema
+# Descripción Del Problema
+
+Uno de los problemas más comunes al momento de trabajar en conjunto con otras personas dentro de un mismo proyecto que involucre el desarrollo de software, es el seguimiento de cambios sobre el mismo sobre el código fuente del mismo, puesto que un cambio dentro del código fuente de una pieza de software, puede tener un impacto importante al momento de ser utilizado por el usuario final.
+
+Los problemas más comunes que se desprenden de esta problematica son los siguientes:
+
+- Cambios no supervisados
+- errores en cambios no supervisados
+- manejo de errores en versiones funcionales del proyecto
+- manejo de nuevas funcionalidades en versiones futuras del proyecto
+- registro de cambios realizados, quién los hizo , cuándo los hizo y qué hizo
+- estaciones de trabajo independientes para no cruzar cambios de distintos colaboradores
+- versionado de proyecto para su despligue
+
+Es por lo anterior mencionado que nacen los "controladores de versiones", software encargado de solucionar todos los estados del problema anterior mencionado, ayudando al al monitoreo, control y desarrollo del proyecto en cuestión más eficiente.
 
 
 \newpage
 # Descripción del paradigma
+
+El paradigma funcional en cuestión es el empleado para el desarrollo del laboratorio abordado en este informe y su desarrollo dentro del lenguaje empleado para el codigo fuente.
 
 
 \newpage
