@@ -1,11 +1,22 @@
 ---
 title: "Informe Laboratorio Paradigmas de programacion"
 author: "Rodrigo Mardones"
-date: "10-05-2020"
+date: "1 de junio del 2020"
 output: pdf_document
 fontsize: 12pt
 geometry: margin=1in
 ---
+\newpage
+
+# Indice
+
+1. Introduccion.
+2. Descripcion del problema.
+3. Descripción del paradigma.
+4. Análisis del problema.
+5. Aspectos de la implementación.
+6. concluisiones.
+7. Referencias.
 
 
 \newpage 
@@ -25,8 +36,7 @@ Para abordar el problema se plantean lo siguientes objectivos especificos
 * Análisis del problema 
 * Aspectos de implementación
 * construccion de implementacion 
-* 
-*
+* Conclusiones
 
 
 Este informe solo recopila el estudio y construccion del proyecto de laboratorio descrito, por lo que no se abordarán otros paradigmas que pueden mencionarse como referencia para la construcción del mismo en las páginas contiguas. 
@@ -72,7 +82,18 @@ Otra caracteristica importante dentro de este paradigma de programacion es el us
 
 Desde el punto de vista tecnológico, un controlador de versiones tiene muchas virtudes, pues no solo nos permite controlar los cambios dentro de un proyecto en transcurso, sino que nos permite desplegar versiones distintas y modularizar.
 
-Para el problema en cuestion es necesario entender que se necesita.
+El uso de sectores de trabajo permite modularizar de mejor manera el trabajo realizado y por lo tanto es perentorio utilizar estos para así satisfacer las necesidades generales del trabajo en cuestión.
+
+En este caso se cuentan con 4 estaciones o zonas de trabajo, las cuales son las siguientes:
+
+  * LocalRepository : Repositorio Local donde se guardan los cambios realizados de manera local
+  * Index: Sector donde los cambios no guardados quedan de manera transitoria antes de ser entregados
+  * rama: zona de trabajo donde se ordenan los cambios realizados a través del tiempo.
+  * Remote Repository: Zona de trabajo remoto donde guardamos los cambios de manera externa para que otros puedan acceder a estos
+  
+La unidad básica dentro de estas estaciones de trabajo es el "commit". Esta mantiene la información pertinente al proyecto guardada y a su vez metainformacion referente a la persona que hizo el cambio, cuando lo hizo y que archivos tocó para poder hacerlo.
+
+Otro Concepto importante son las "ramas", más allá de lo ya dicho, poder trabajar con más de una rama permite al usuario final poder diversificar desarrollo del proyecto sin comprometer el trabajo realizado por otros colaboradores dentro del mismo. La construcción de ramas provenientes de otras ramas permite también crear features o bugfix de manera más eficiente.
 
 
 \newpage
@@ -134,6 +155,7 @@ Para la implementación como tal se ha creado el siguiente TDA, como representac
   - pull
   - push
   
+Para efectos de descripcion, todas las descripciones relacionadas al TDA en cuestion se encuetran en el codigo para su mayor entendimiento, por lo que no se han puesto aquí.
 
 \newpage
 # Conclusiones 
