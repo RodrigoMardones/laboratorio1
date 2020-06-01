@@ -128,7 +128,7 @@
 ;descrip: funcion que recibe un mensaje y retorna una funcion esperando como repsuesta un repositorio a modificar
 (define commit (lambda (mensaje)
 	(lambda (repositorio)
-		(list (getWorkingSpace repositorio) null (modificarRama (getWorkingSpace repositorio) (crearCommit (getIndex repositorio) mensaje) (getRamas repositorio)))
+		(list (getWorkingSpace repositorio) null (modificarRama (getWorkingSpace repositorio) (crearCommit (getIndex repositorio) mensaje) (getRamas repositorio)) (getRemote repositorio))
 	)
 ))
 
