@@ -7,19 +7,44 @@
 ;entrada: Funciones
 ;salida: Funciones
 ;descrip: Permite la ejecucion de funciones de git
-(define Git (lambda (funcion)
+(define git (lambda (funcion)
 	(funcion)
 ))
 
-
+;========================= constructores ================================
 ;mombre : Init
 ;entrada: vacio
 ;salida: Repositorio
 ;descrip: Permite iniciar un repositorio vacio
-(define init (lambda ()
-	(list "master" ( list ) (crearRama "master") ( list ))
+(define crearRama (lambda (nombre)
+	(if(string? nombre)
+		(list nombre)
+		null
+	)
 ))
 
+
+(define init (lambda ()
+	(list "master" (list ) (list ) (list ))
+))
+
+;nombre: crearRama
+;entrada: string
+;salida: rama
+;descrip: Permite crear un rama
+
+((define (crearRama nombre)
+	(list nombre null)
+))
+
+;nombre: crearCommit
+;entrada: index x mensaje
+;salida : commit
+;descrip: crear un commit a partir de la informacion del index y un mensaje 
+(define crearCommit (lambda (index mensaje)
+	(list index mensaje)
+))
+;========================= selectores ================================
 ;nombre: getWorkingSpace
 ;entrada: Repositorio
 ;salida: String
@@ -45,7 +70,6 @@
 	(cddr repositorio)
 ))
 
-
 ;nombre: getRemote
 ;entrada: Repositorio
 ;salida: ramas
@@ -54,24 +78,7 @@
 	(cdddr repositorio)
 ))
 
-;nombre: crearRama
-;entrada: string
-;salida: rama
-;descrip: Permite crear un rama
-(define crearRama (lambda (nombre)
-	(if(string? nombre)
-		(list nombre )
-		null
-	)
-))
-
-;nombre: crearCommit
-;entrada: index x mensaje
-;salida : commit
-;descrip: crear un commit a partir de la informacion del index y un mensaje 
-(define crearCommit (lambda (index mensaje)
-	(list index mensaje)
-))
+;========================= modificadores ================================
 
 ;nombre: ModificarRama
 ;entrada: rama x commit
@@ -87,29 +94,6 @@
 		)
 	)
 ))
-
-
-
-;nombre : add
-;entrada: cambios
-;salida: funcion
-;descrip: funcion que recibe lista de cambios y los agrega al index de un repositorio
-(define add (lambda (cambios)
-	(lambda (repositorio)
-		(list (getWorkingSpace repositorio) (cons (getIndex repositorio) cambios) (getRamas repositorio))
-	)
-))
-
-;nombre: commit
-;entrada: mensaje
-;salida: funcion
-;descrip: funcion que recibe un mensaje y retorna una funcion esperando como repsuesta un repositorio a modificar
-(define commit (lambda (mensaje)
-	(lambda (repositorio)
-		(list (getWorkingSpace repositorio) null (modificarRama (getWorkingSpace repositorio) (crearCommit (getIndex repositorio) mensaje) (getRamas repositorio)))
-	)
-))
-
 
 ;nombre: toPull 
 ;entrada: ramas x remote
@@ -127,6 +111,29 @@
 	)
 ))
 
+;=================================== OTROS ===============================================================
+;nombre : add
+;entrada: cambios
+;salida: funcion
+;descrip: funcion que recibe lista de cambios y los agrega al index de un repositorio
+(define add (lambda (cambios)
+	(lambda (repositorio)
+		(list (getWorkingSpace repositorio) (append (getIndex repositorio) cambios) (getRamas repositorio) (getRemote repositorio))
+	)
+))
+
+;nombre: commit
+;entrada: mensaje
+;salida: funcion
+;descrip: funcion que recibe un mensaje y retorna una funcion esperando como repsuesta un repositorio a modificar
+(define commit (lambda (mensaje)
+	(lambda (repositorio)
+		(list (getWorkingSpace repositorio) null (modificarRama (getWorkingSpace repositorio) (crearCommit (getIndex repositorio) mensaje) (getRamas repositorio)))
+	)
+))
+
+
+
 ;nombre: pull
 ;entrada: vacio
 ;salida: funcion -> repositorio
@@ -135,7 +142,7 @@
 	(lambda (repositorio)
 		(list (getWorkingSpace repositorio) (getIndex repositorio) (toPull (getRamas repositorio) (getRemote repositorio)) (getRemote) )
 	)
-))
+))	
 
 
 ;nombre: push
@@ -147,3 +154,8 @@
 		(list (getWorkingSpace repositorio) (getIndex repositorio) (getRamas repositorio) (getRamas repositorio))
 	)
 ))
+
+
+;========================= ejemplos ===================================
+
+(define repo (git init))

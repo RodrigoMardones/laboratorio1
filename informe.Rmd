@@ -70,8 +70,9 @@ Otra caracteristica importante dentro de este paradigma de programacion es el us
 \newpage
 # Análisis del problema
 
-Desde el punto de vista 
+Desde el punto de vista tecnológico, un controlador de versiones tiene muchas virtudes, pues no solo nos permite controlar los cambios dentro de un proyecto en transcurso, sino que nos permite desplegar versiones distintas y modularizar.
 
+Para el problema en cuestion es necesario entender que se necesita.
 
 
 \newpage
@@ -107,15 +108,32 @@ Para la implementación como tal se ha creado el siguiente TDA, como representac
   - tipo: lista
   - descripcion: lista con las ramas remotas y sus cambios
 
-* Cosntructores:
-  - Init
+***
+
+* Constructores:
   
+  - Init
+  - crearRama
+  - crearCommit
+
 * Selectores: 
-
+  
+  - getWorkingSpace
+  - getIndex
+  - getRamas
+  - getRemote
+  
 * Modificadores:
-
+  
+  - modificarRama
+  - toPull
+  
 * otros Funciones:
-
+  - add
+  - commit
+  - pull
+  - push
+  
 
 \newpage
 # Conclusiones 
@@ -133,5 +151,9 @@ El uso inteligente de la recursión como método de solución para con los probl
 # Referencias 
 
 
-
+Para el desarrollo de este laboratorio se han ocupado las siguientes referencias:
+  
+  * libro : "A short introduction to the Lambda Calculus" , Achim Jung. March 18, 2004.
+  * libro : "Programing with abstract data types" , Barbara Liskov. Massachusetts Institute of Technology.
+  * web   : "documentacion Scheme GNU ORG", https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-user/Introduction.html. 
 
