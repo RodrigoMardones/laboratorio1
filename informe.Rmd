@@ -29,7 +29,7 @@ Para abordar el problema se plantean lo siguientes objectivos especificos
 *
 
 
-Este informe solo recopila el estudio y construccion del proyecto de laboratorio descrito, por lo que no se abordarán otros paradigmas que pueden mencionarse como referencia para la construcción del mismo en las pagintas contiguas. 
+Este informe solo recopila el estudio y construccion del proyecto de laboratorio descrito, por lo que no se abordarán otros paradigmas que pueden mencionarse como referencia para la construcción del mismo en las páginas contiguas. 
 
 
 
@@ -52,21 +52,81 @@ Es por lo anterior mencionado que nacen los "controladores de versiones", softwa
 
 
 \newpage
-# Descripción del paradigma
+# Descripción Del Paradigma
 
 El paradigma funcional en cuestión es el empleado para el desarrollo del laboratorio abordado en este informe y su desarrollo dentro del lenguaje empleado para el codigo fuente.
+
+Este paradigma de caracter declarativo, forja y construye el mundo a partir de su unidad minima, la función. Cualquier elemento o representación en cuestión se hace a partir de las funciones. El uso de la función está ligado inherentemente a las funciones matemáticas y cómo estas se expresan. Es decir, tenemos un dominio y un recorrido para cada función que creamos es este tipo de paradigmas.
+
+Una de las caracteristicas más importante a mencionar es el uso de calculo lambda, un sistema formal, de uso matemático para la implementación y el estudio de funciones. esta emplea una notación prefija, es decir una notacion donde los operadores se encuentran antes que los operandos al momento de su definición 
+
+![diferencias entre notaciones](C:\Users\Rodri\Desktop\proyectos\Universidad\paradigmas\images\ejemplo){#id .class width=50% height=50%}
+
+Otra caracteristica importante dentro de este paradigma de programacion es el uso de la recursividad como recurso para la resolución de problemas. La recursión es un método de resolución de problemas donde la solución al problema inicial son instancias de más pequeñas del mismo problema, por lo tanto podemos decir que la recursión se define en terminos de si misma.
+
+![Imagen cómica de recursion](C:\Users\Rodri\Desktop\proyectos\Universidad\paradigmas\images\recursion.jpeg){#id .class width=50% height=50% center=left}
 
 
 \newpage
 # Análisis del problema
 
+Desde el punto de vista 
+
+
 
 \newpage
 # Aspectos de la implementación
 
+Para la implementación como tal se ha creado el siguiente TDA, como representación interna del Repositorio.
+
+* LocalRepository : (ramaTrabajo, Index, Ramas, Remote) 
+  - tipo : Lista
+  - Descripción: Espacio de trabajo Local para poder manejar los cambios actuales
+* RamaTrabajo "Master"
+  - tipo : String
+  - descripcion : nombre de la rama en la que se trabaja actualmente
+* Index : (Cambios)
+  - Tipo : Lista
+  - Descripcion: Lista de cambios listos para su enviado a la rama de trabajo correspondiente
+* Cambio : (Archivos)
+  - tipo : Lista
+  - Descripcion: Lista de archivos listos para ser subidos a la rama correspondiente de trabajo actual
+* Archivo: "nombre.extension"
+  - tipo : String
+  - Descripcion : nombre del archivo a ser trabajado en el cambio correspondiente
+* Rama : (nombreRama (commits))
+  - tipo : Lista
+  - Espacio de trabajo donde se manejan los cambios realizados al proyecto donde se realiza el monitoreo correspondiente
+* nombreRama : "nombreRama" 
+  - tipo : String
+  - descripcion : Nombre de la rama correspondiente.
+
+\newpage
+
+* Remote:(ramas)
+  - tipo: lista
+  - descripcion: lista con las ramas remotas y sus cambios
+
+* Cosntructores:
+  - Init
+  
+* Selectores: 
+
+* Modificadores:
+
+* otros Funciones:
+
 
 \newpage
 # Conclusiones 
+
+La programación funcional nos otorga una mirada distinta al resolver problemas, no solo desde el punto de vista de la programación, si no que desde el punto de vista matemático. La representación de elementos como funciones permite la solución de problemas a partir de modelos más simples y su abstracción permite sustraer aspectos que no son necesarios considerar cuando se describe un problema y que si bien son parte de ellos, no afectan en lo absoluto la representación final.
+
+En aspectos practicos "el paradigma funcional" nos permite ordenar y hacer de nuestra representación una solución más elegante. La implementación de funciones lambda permite no solo modularizar y simplificar, sino que también nos deja ordenar de mejor manera las entradas y salidas de cada funcion, haciendo que no tengamos que escribir código innecesario o redundante.
+
+El uso inteligente de la recursión como método de solución para con los problemas entregados también nos permite complementar lo anterior dicho, pues. Permite definir la solución de problemas en torno a definiciones más pequeñas de si mismo, eliminando codigo innecesario, permitiendo ejecución inteligente de código y haciendo que la compresión de este no sea compleja para el usuario.
+
+
 
 
 \newpage
