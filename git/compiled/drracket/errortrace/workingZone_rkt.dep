@@ -1,0 +1,1 @@
+("7.8" racket ("b4f9219d06086d7af66e310441a5cec9086dd997" . "d5def18f220d111cfa50d0871799dcf885b9fc08") #"/Users/rodrigomardones/Desktop/proyectos/scheme/git/archivo.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt"))

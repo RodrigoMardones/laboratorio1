@@ -10,5 +10,5 @@
 *.scm~
 *.scm#*
 .#*.scm
-
+/compiled
 # End of https://www.gitignore.io/api/scheme

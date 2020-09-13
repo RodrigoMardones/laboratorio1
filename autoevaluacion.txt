@@ -1,15 +1,21 @@
-1. TDA : 1.0
-2. GIT : 1.0
-3. PUSH: 0.75
-4. PULL: 0.75
-5. ADD : 0.5
-6. COMMIT: 0.75
-7. PUSH: 0.5
-8. ZONAS->STRING:0
-9. STATUS:0
-10. LOG:0
-11. BRANCH: 0
-12. CHECKOUT:0
-13. MERGE:0
-14. ADD-ALL:0
-15. DIFF:0
+requerimientos funcionales obligatorios
+TDA : 1
+GIT : 1
+PUSH: 1
+PULL: 1
+ADD : 1
+COMMIT: 1
+PUSH: 1
+ZONAS->STRING:1
+
+requerimientos no funcionales obligatorios
+
+autoevaluacion: 1
+implementacion en scheme : 1
+version drRacket > 6.11 : 1
+no uso de define en otras funciones: 1
+documentacion : 1
+dom y rec en funciones: 1
+estructura de codigo independiente por tda: 1
+commits: 1
+ejemplos: 1
