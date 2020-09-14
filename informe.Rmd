@@ -70,11 +70,11 @@ Este paradigma de caracter declarativo, forja y construye el mundo a partir de s
 
 Una de las caracteristicas más importante a mencionar es el uso de calculo lambda, un sistema formal, de uso matemático para la implementación y el estudio de funciones. esta emplea una notación prefija, es decir una notacion donde los operadores se encuentran antes que los operandos al momento de su definición 
 
-![diferencias entre notaciones](C:\Users\Rodri\Desktop\proyectos\Universidad\paradigmas\images\ejemplo){#id .class width=50% height=50%}
+![diferencias entre notaciones](ejemplo.png){#id .class width=50% height=50%}
 
 Otra caracteristica importante dentro de este paradigma de programacion es el uso de la recursividad como recurso para la resolución de problemas. La recursión es un método de resolución de problemas donde la solución al problema inicial son instancias de más pequeñas del mismo problema, por lo tanto podemos decir que la recursión se define en terminos de si misma.
 
-![Imagen cómica de recursion](C:\Users\Rodri\Desktop\proyectos\Universidad\paradigmas\images\recursion.jpeg){#id .class width=50% height=50% center=left}
+![Imagen cómica de recursion](recursion.jpeg){#id .class width=50% height=50% center=left}
 
 
 \newpage
@@ -91,7 +91,7 @@ En este caso se cuentan con 4 estaciones o zonas de trabajo, las cuales son las 
   * rama: zona de trabajo donde se ordenan los cambios realizados a través del tiempo.
   * Remote Repository: Zona de trabajo remoto donde guardamos los cambios de manera externa para que otros puedan acceder a estos
   
-La unidad básica dentro de estas estaciones de trabajo es el "commit". Esta mantiene la información pertinente al proyecto guardada y a su vez metainformacion referente a la persona que hizo el cambio, cuando lo hizo y que archivos tocó para poder hacerlo.
+La unidad básica dentro de estas estaciones de trabajo es el "commit". Esta mantiene la información pertinente al proyecto guardada y a su vez metainformacion referente a la persona que hizo el cambio, cuando lo hizo y que archivos tocó para poder hacerlo, y a su vez, el commit depende de otra unidad dentro de esta la cual es el arhivo, que son los documentos que el grupo de desarrollo trabaja dentro del tiempo.
 
 Otro Concepto importante son las "ramas", más allá de lo ya dicho, poder trabajar con más de una rama permite al usuario final poder diversificar desarrollo del proyecto sin comprometer el trabajo realizado por otros colaboradores dentro del mismo. La construcción de ramas provenientes de otras ramas permite también crear features o bugfix de manera más eficiente.
 
@@ -99,63 +99,52 @@ Otro Concepto importante son las "ramas", más allá de lo ya dicho, poder traba
 \newpage
 # Aspectos de la implementación
 
-Para la implementación como tal se ha creado el siguiente TDA, como representación interna del Repositorio.
+Para la implementacion se han considerado los siguientes TDA, estos nos ayudarán de mejor manera a entender el flujo de trabajo correspondiente:
 
-* LocalRepository : (ramaTrabajo, Index, Ramas, Remote) 
-  - tipo : Lista
-  - Descripción: Espacio de trabajo Local para poder manejar los cambios actuales
-* RamaTrabajo "Master"
-  - tipo : String
-  - descripcion : nombre de la rama en la que se trabaja actualmente
-* Index : (Cambios)
-  - Tipo : Lista
-  - Descripcion: Lista de cambios listos para su enviado a la rama de trabajo correspondiente
-* Cambio : (Archivos)
-  - tipo : Lista
-  - Descripcion: Lista de archivos listos para ser subidos a la rama correspondiente de trabajo actual
-* Archivo: "nombre.extension"
-  - tipo : String
-  - Descripcion : nombre del archivo a ser trabajado en el cambio correspondiente
-* Rama : (nombreRama (commits))
-  - tipo : Lista
-  - Espacio de trabajo donde se manejan los cambios realizados al proyecto donde se realiza el monitoreo correspondiente
-* nombreRama : "nombreRama" 
-  - tipo : String
-  - descripcion : Nombre de la rama correspondiente.
+* Archivo : TDA que representa un archivo dentro de nuestra zona de trabajo.
+  - tipo: (lista nombre contenido)
+  - constructor: Archivo
+  - accesores: getNombreArchivo, getContenidoArchivo
+  - selectores: isArchivo
+  - pertenencia: setContenido setNombre
+  - otras funciones: archivo2String
+
+* Commit: TDA que representa un commit dentro de nuestras zonas de trabajo, con su respectiva lista de archivos y un comentario asociado
+
+  - tipo : (lista nombreCommit (lista Archivos))
+  - constructor: Commit
+  - accesores: getMensajeCommit getArchivosCommit
+  - pertenencia: isCommit
+  - otras funciones: commit2String
+  
+  
+  
+* WorkingZone: TDA que tiene como funcion la representacion de aquellas zonas de trabajo que solo llevan archivos (workSpace e Index)
+
+  - tipo: (lista Archivos)
+  - constructor: WorkingZone
+  - accessor: getArchivos
+  - pertenencia: isWorkingZone
+  - otras funciones: work2String
+
+* RepoZone: TDA que tiene como funcion la representacion de aquellas zonas que llevan commits (LocalRepository y RemoteRepository)
+
+  - tipo: (lista Commits)
+  - constructor: RepoZone
+  - accesores: getCommits
+  - pertenencia: isRepoZone
+  - selectores: agregarCommit
+  - otras funciones: repo2String
 
 \newpage
+* Repository: TDA que tiene como funcion la representacion final del flujo completo de git, con todas sus funcionalidades correspondientes
 
-* Remote:(ramas)
-  - tipo: lista
-  - descripcion: lista con las ramas remotas y sus cambios
-
-***
-
-* Constructores:
+  - tipo: (lista WorkingZone(Workspace) WorkingZone(index) RepoZone(LocalRepository) RepoZone(RemoteRepository))
+  - constructor: Repository
+  - accesor: getWorkSpace, getIndex, getLocal, getRemote
+  - other functions: git, add, commit, push, pull, git->String, proccessPull
   
-  - Init
-  - crearRama
-  - crearCommit
-
-* Selectores: 
-  
-  - getWorkingSpace
-  - getIndex
-  - getRamas
-  - getRemote
-  
-* Modificadores:
-  
-  - modificarRama
-  - toPull
-  
-* otros Funciones:
-  - add
-  - commit
-  - pull
-  - push
-  
-Para efectos de descripcion, todas las descripciones relacionadas al TDA en cuestion se encuetran en el codigo para su mayor entendimiento, por lo que no se han puesto aquí.
+Para efectos de documentacion asociados a los elementos abstractos de TDA (constructor, accesor, pertenencia, selectores y otras funciones), por cada archivo de TDA se ha documentado cada funcion asociada a este, agregando el nombre de la funcion, la descripcion, dominio y recorrido de la funcion, recursividad asociada a la funcion si es que se ocupa y motivo de la recursion asociada si es que se ocupa.
 
 \newpage
 # Conclusiones 
